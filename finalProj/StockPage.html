@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+ <title id = "name">Stock Data</title>
+ <script  src = "StockData.js"></script>
+ <script>
+	const myJSON =[];
+	var text= [];
+	var n = "";
+	function loadData(){
+		var count=0;
+		var mylist = document.querySelector('#stock_list');
+		n = mylist.value;
+		document.getElementById("name").innerHTML = n;
+		document.getElementById("company_name").innerHTML=n;
+		for(i=0;i<text.length;i++){
+			if (text[i].name === n){
+				count++
+					if(count==1){
+						if(text[i].change[0]==='+'){
+							document.getElementById("data").innerHTML = '<p>Date: '+text[i].date+' &emsp; Change:<b style= "color:green;">'+text[i].change+'</b></p>';
+						}
+						else{
+							document.getElementById("data").innerHTML = '<p>Date: '+text[i].date+' &emsp; Change:<b style= "color:red;">'+text[i].change+'</b></p>';
+						}
+					}
+					else{
+						if(text[i].change[0]==='+'){
+							document.getElementById("data").innerHTML += '<br><p>Date: '+text[i].date+' &emsp; Change:<b style= "color:green;">'+text[i].change+'</b></p>';
+						}
+						else{
+							document.getElementById("data").innerHTML += '<br><p>Date: '+text[i].date+' &emsp; Change:<b style= "color:red;">'+text[i].change+'</b></p>';
+						}
+					}
+			}
+
+		}
+	}
+
+	function start(){
+		for (i = 0;i<data.length;i++){
+      		myJSON[i] = JSON.stringify(data[i]);
+    	}
+    	for (i=0;i<data.length;i++){
+      		text[i] = JSON.parse(myJSON[i]);
+    	}
+		for(i=0;i<text.length;i++){
+			const newStock = '<option value = "'+text[i].name+'">'+text[i].name+'</option>';
+			document.querySelector('#stock_list').innerHTML += ''+newStock;
+		}
+		document.getElementById("dataButton").addEventListener("click", loadData, false);
+	}
+	window.addEventListener("load", start, false);
+ </script>
+</head>
+<body>
+	<center><h1 id = "company_name">Stock Data Interface</h1></center>
+	<center>
+	<form>
+		<b>Select the company you would like to view data of:</b>
+		<select id = "stock_list">
+			<option>--choose company--</option>
+		</select>
+		<input id="dataButton" type="button" value="Get Data">
+	</form>
+	</center>
+	<hr>
+	<center>
+		<span id = "data"> </span>
+	<br>
+	</center>
+</body>

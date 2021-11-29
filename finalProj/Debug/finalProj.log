@@ -1,0 +1,7 @@
+﻿  StockClasses.cpp
+C:\Users\brand\Documents\cs225\finalProj\finalProj\StockClasses.cpp(34,11): warning C4101: 'change': unreferenced local variable
+C:\Users\brand\Documents\cs225\finalProj\finalProj\StockClasses.cpp(89,14): warning C4244: 'initializing': conversion from 'std::streamoff' to 'long', possible loss of data
+  main.cpp
+C:\Users\brand\Documents\cs225\finalProj\finalProj\main.cpp(37,16): warning C4129: ' ': unrecognized character escape sequence
+  Generating Code...
+  finalProj.vcxproj -> C:\Users\brand\Documents\cs225\finalProj\finalProj\Debug\finalProj.exe
